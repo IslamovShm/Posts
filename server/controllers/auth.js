@@ -6,7 +6,7 @@ export const register = (req, res) => {
     
     const q = "SELECT * FROM users WHERE email = ?";
 
-    db.query(q, [req.body.username], (err, data) => {
+    db.query(q, [req.body.email], (err, data) => {
         if (err) return res.status(500).json(err);
 
         if (data.length) return res.status(409).json("User already exists");
